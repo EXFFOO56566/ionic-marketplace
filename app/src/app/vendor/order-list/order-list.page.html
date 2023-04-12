@@ -1,0 +1,71 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"Orders" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding order-list">
+
+  <div class="spinner" *ngIf="loader"><ion-spinner> </ion-spinner></div>
+
+
+    <div *ngIf="orders">
+      <div *ngIf="!loader && orders.length == 0" text-center class="empty">
+      <ion-icon name="document"></ion-icon>
+    </div>
+
+    <div *ngIf="settings.settings?.vendorType !== 'product_vendor'">
+    <ion-card *ngFor="let item of orders" mode="{{settings.settings.mode}}" button="true" (click)="getDetail(item)" class="ion-activatable ion-focusable {{settings.settings.product_shadow}}">
+      <ion-card-header (click)="getDetail(item)">
+        <ion-card-subtitle>{{item.id}} - <span style="text-transform: uppercase;">{{item.status}}</span></ion-card-subtitle>
+        <ion-card-title>{{item.total | currency:settings.currency:'symbol':'1.2-2'}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{item.date_created | date:'MMM d, y hh:mm a'}}</p>
+        <p [innerHTML]="item.payment_method_title"></p>
+        <ion-button size="small" (click)="getDetail(item); $event.stopPropagation()" color="{{settings.theme.button}}" fill="outline" slot="start">
+        <ion-icon slot="icon-only" name="eye"></ion-icon>
+        {{"View" | translate}}
+        </ion-button>
+        <ion-button size="small" (click)="editOrder(item); $event.stopPropagation()" color="{{settings.theme.button}}" fill="outline" slot="end">
+        <ion-icon slot="icon-only" name="create" mode="ios"></ion-icon>
+        {{"Edit" | translate}}
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+    </div>
+
+
+    <!-- WOOCOMMERCE PRODUCT VENDOR -->
+    <div *ngIf="settings.settings?.vendorType === 'product_vendor'">
+    <ion-card *ngFor="let item of orders" mode="{{settings.settings.mode}}" button="true">
+      <ion-card-header class="ion-activatable ion-focusable hydrated">
+        <ion-card-subtitle>{{item.id}} - <span style="text-transform: uppercase;">{{item.status}}</span></ion-card-subtitle>
+        <ion-card-title>{{item.total_commission_amount | currency:settings.currency:'symbol':'1.2-2'}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{item.date_created | date:'MMM d, y hh:mm a'}}</p>
+        <p [innerHTML]="item.payment_method_title"></p>
+        <p>{{item.shipping.first_name}} {{item.shipping.last_name}} {{item.shipping.company}} {{item.shipping.address_1}} {{item.shipping.address_2}} {{item.shipping.city}} {{item.shipping.state}} {{item.shipping.postcode}} {{item.shipping.country}}</p>
+        <ion-button size="small" color="{{item.fulfillment_status === 'fulfilled' ? 'success': 'danger'}}" fill="outline" slot="start" (click)="updateOrderStatus(item)">
+        {{item.fulfillment_status.toUpperCase() | translate}}
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+    </div>
+
+    <ion-infinite-scroll threshold="100px" *ngIf="hasMoreItems && orders.length" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </div>
+
+</ion-content>

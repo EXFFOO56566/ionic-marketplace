@@ -1,0 +1,47 @@
+<ion-header mode="ios" mode='ios'>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/account/blogs"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="post.post?.title?.rendered">{{post.post.title.rendered}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="post">
+<div class="spinner" *ngIf="!post.post"><ion-spinner> </ion-spinner></div>
+<div *ngIf="post.post">
+<ion-card>
+  <div *ngIf="post.post._embedded && post.post._embedded['wp:featuredmedia'] && post.post._embedded['wp:featuredmedia'].length">
+    <ion-img alt="" src="{{post.post._embedded['wp:featuredmedia'][0].source_url}}"></ion-img>
+  </div>
+  <ion-card-header>
+    <ion-card-subtitle>{{post.post.date | datepipe}}</ion-card-subtitle>
+    <ion-card-title>{{post.post.title.rendered}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content [innerHTML]="post.post.content.rendered">
+  </ion-card-content>
+</ion-card>
+</div>
+
+<div *ngFor="let item of comments" class="comments">
+<ion-item lines="none">
+  <ion-avatar slot="start">
+    <ion-img [src]="item.author_avatar_urls['96']"></ion-img>
+    <!--ion-icon color="medium" name="person" mode="ios"></ion-icon-->
+  </ion-avatar>
+  <ion-label>
+    <h2>{{item.author_name}}</h2>
+  <p>{{item.date | datepipe}}</p>
+  </ion-label>
+</ion-item>
+<ion-item><ion-label><p text-wrap [innerHTML]="item.content.rendered"></p></ion-label></ion-item>
+</div>
+
+<ion-infinite-scroll threshold="100px" *ngIf="hasMoreItems && comments?.length" (ionInfinite)="getMoreComments($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</ion-content>

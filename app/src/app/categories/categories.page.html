@@ -1,0 +1,179 @@
+<ion-header mode='ios' >
+  <ion-toolbar>
+    <ion-title>
+      {{"Categories" | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="categories">
+
+  <!-- Default category block -->
+	<!--ion-row>
+    <ion-col size='6' size-sm="4" size-md="3" *ngFor="let category of data.mainCategories" (click)="getProducts(category.id)">
+    <ion-card class="category-card" class="ion-activatable ion-focusable hydrated" mode="md">
+      <ion-img alt="" src="{{category.image?.src}}"></ion-img>
+      <ion-card-header>
+        <ion-card-title [innerHTML]="category.name"></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    </ion-col>
+  </ion-row-->
+
+  <div class="categories-split" *ngIf="data?.mainCategories">
+      <ion-grid *ngIf="data.mainCategories" style="padding: 0;">
+          <ion-row>
+              <ion-col width-40 class="col-left">
+                  <div *ngFor="let item of data.mainCategories" class="tab-left-item" [ngClass]="{selected: item.id == selectedCategory.id}">
+                      <h2 tappable (click)="selectcategory(item)" [innerHTML]="item.name" text-wrap></h2>
+                  </div> <br/> </ion-col>
+              <ion-col width-60 class="col-right">
+                  <ion-list no-margin text-wrap radio-group>
+                      <div class="cat-image" *ngIf="selectedCategory.image && selectedCategory.image?.src != ''" (click)="getProducts(selectedCategory.id)"><img *ngIf="selectedCategory.image?.src" src="{{selectedCategory.image.src}}"> </div>
+                    <ion-grid *ngIf="selectedCategory?.id">
+                      <ion-row>
+                          <ion-col button="true" size="4" size-sm="3" size-md="2" tappable *ngFor="let subcat of subCategories(selectedCategory.id)" mode="md" class="col">
+                            <ion-card style="margin: 0; box-shadow: none;" button="true" (click)="getProducts(subcat.id)">
+                            <img *ngIf="subcat.image?.src" src="{{subcat.image.src}}">
+                            <img *ngIf="!subcat.image?.src" src="assets/image/category.png">
+                              <p style="margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 4px; font-size: 10px;" [innerHTML]="subcat.name"></p>
+                            </ion-card>
+                          </ion-col>
+                      </ion-row>
+                      </ion-grid>
+                    </ion-list>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+
+
+
+<!-- Drop down type category block -->
+<!--div *ngFor="let main of data.mainCategories; let i = index" class="category-container">
+  <ion-grid class="categories-card5" no-padding>
+  <ion-row><ion-col class="ion-text-center">
+  <ion-item lines="none" (click)="showSubCategory(i)" detail="false">
+    <ion-thumbnail slot="start">
+      <img *ngIf="main.image?.src" src="{{main.image.src}}">
+    </ion-thumbnail>
+    <ion-label>
+      <h2 [innerHTML]="main.name"></h2>
+      <p [innerHTML]="main.description"></p>
+    </ion-label>
+    <ion-icon *ngIf="main.show" name="chevron-up-outline" mode="ios" color="medium"></ion-icon>
+    <ion-icon *ngIf="!main.show" name="chevron-down-outline" mode="ios" color="medium"></ion-icon>
+  </ion-item>
+</ion-col>
+</ion-row>
+  <ion-row *ngIf="main.show" class="sub-category-items">
+    <ion-col size="6" size-sm="4" size-md="3" *ngFor="let item of subCategories(main.id)" fixed>
+    <ion-card button="true" (click)="getProducts(item.id)"  class="item-card" class="ion-activatable ion-focusable hydrated">
+      <ion-card-content>
+        <img alt="" src="{{item.image?.src}}">
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title [innerHTML]="item.name"></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</div-->  
+
+
+<!-- Catgories Grid 1 -->
+<!--ion-grid class="categories-card1">
+  <ion-row>
+    <ion-col size="6" size-sm="4" size-md="3" *ngFor="let item of data.mainCategories" (click)="getProducts(item.id)" fixed>
+    <ion-card class="item-card" class="ion-activatable ion-focusable hydrated" mode="md">
+      <ion-card-content>
+      <img alt="" src="{{item.image?.src}}">
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title [innerHTML]="item.name"></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid-->
+
+<!-- Catgories Grid 2 -->
+<!--ion-grid class="categories-card2">
+  <ion-row>
+    <ion-col size="6" size-sm="4" size-md="3" *ngFor="let item of data.mainCategories" (click)="getProducts(item.id)" fixed>
+    <ion-card class="item-card" class="ion-activatable ion-focusable hydrated" mode="md">
+      <ion-card-content>
+      <img alt="" src="{{item.image?.src}}">
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title [innerHTML]="item.name"></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid-->
+
+<!-- Catgories Grid 3 -->
+<!--ion-grid class="categories-card3">
+  <ion-row>
+    <ion-col size="6" size-sm="4" size-md="3" *ngFor="let item of data.mainCategories" (click)="getProducts(item.id)" fixed>
+    <ion-card class="item-card" class="ion-activatable ion-focusable hydrated" mode="md">
+      <ion-card-content>
+      <img alt="" src="{{item.image?.src}}">
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title [innerHTML]="item.name"></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid-->
+
+
+<!-- Catgories Grid 4 -->
+<!--ion-grid class="categories-card4" *ngFor="let main of data.mainCategories">
+  <ion-row><ion-col class="ion-text-center" [innerHTML]="main.name"></ion-col></ion-row>
+  <ion-row>
+    <ion-col size="6" size-sm="4" size-md="3" *ngFor="let item of subCategories(main.id)" (click)="getProducts(item.id)" fixed>
+    <ion-card class="item-card" class="ion-activatable ion-focusable hydrated" mode="md">
+      <ion-card-content>
+      <img alt="" src="{{item.image?.src}}">
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title [innerHTML]="item.name"></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid-->
+
+<!-- Catgories List 1 -->
+<!--ion-grid class="categories-list1">
+  <ion-item *ngFor="let item of data?.mainCategories">
+    <ion-thumbnail slot="start">
+      <img *ngIf="item.image?.src" src="{{item.image.src}}">
+    </ion-thumbnail>
+    <ion-label>
+      <h2 [innerHTML]="item.name"></h2>
+      <p>{{item.description}}</p>
+    </ion-label>
+    <ion-icon name="arrow-forward" mode="ios" color="medium"></ion-icon>
+  </ion-item>
+</ion-grid-->
+
+<!-- Catgories List 2 -->
+<!--ion-grid class="categories-list2">
+  <ion-item *ngFor="let item of data?.mainCategories">
+    <ion-label>
+      <h2 [innerHTML]="item.name"></h2>
+      <p>{{item.description}}</p>
+    </ion-label>
+    <ion-thumbnail slot="end">
+      <img *ngIf="item.image?.src" src="{{item.image.src}}">
+    </ion-thumbnail>
+  </ion-item>
+</ion-grid-->
+
+
+</ion-content>

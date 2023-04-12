@@ -1,0 +1,35 @@
+<ion-header mode='ios'>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+         <ion-back-button defaultHref="/tabs/categories/products"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-list>
+    <ion-item lines="full">
+        <ion-label position="stacked">{{"Your Name" | translate}}</ion-label>
+        <ion-input required type="text" [(ngModel)]="form['your-name']" name="name"> </ion-input>
+    </ion-item>
+    <ion-item lines="full">
+        <ion-label position="stacked">{{"Your Email" | translate}}</ion-label>
+        <ion-input required type="text" [(ngModel)]="form['your-email']" name="email"> </ion-input>
+    </ion-item>
+    <ion-item lines="full">
+        <ion-label position="stacked">{{"Subject" | translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="form['your-subject']" name="phone"> </ion-input>
+    </ion-item>
+    <ion-item lines="full">
+        <ion-label position="stacked">{{"Your Message" | translate}}</ion-label>
+        <ion-textarea rows="6" type="text-area" [(ngModel)]="form['your-message']" name="phone"> </ion-textarea>
+    </ion-item>
+    <ion-item *ngIf="status?.message" lines="none">
+    <ion-label class="ion-text-wrap" style="text-align: center">{{status.message}}</ion-label>
+    </ion-item>
+    <ion-button [disabled]="disableButton" color="{{settings.theme.button}}" expand="full" fill="solid" (click)="submit()">{{"Submit" | translate}}</ion-button>
+    </ion-list>	
+
+</ion-content>

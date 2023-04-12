@@ -1,0 +1,139 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home/product"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"Review" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="spinner" *ngIf="!reviews">
+    <ion-spinner> </ion-spinner>
+  </div>
+
+<div *ngIf="reviews && showReviews">
+
+<ion-grid class="review-percent-block">
+<ion-row>
+  <ion-list-header>
+    <ion-label mode="ios" style="text-align: center; padding-bottom: 10px;">Review Summary</ion-label>
+  </ion-list-header>
+</ion-row>
+  <ion-row>
+    <ion-col size="4">
+      <h3 class="review-stars"><span class="rating review-star" style="float:none">
+      <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span></span><span style="padding: 0 6px">({{count5 | number : '1.0-0'}})</span> </h3>
+    </ion-col>
+    <ion-col size="6">
+      <div class="progress-bar" item-right><span [style.width.%]="count5Percentage"></span></div>
+    </ion-col>
+    <ion-col size="2">
+      <ion-text item-right> <span style="padding: 0 6px">{{count5Percentage | number : '1.0-0'}}%</span> </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="4">
+      <h3 class="review-stars"><span class="rating review-star" style="float:none"><span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon">&#x2605;</span></span><span style="padding: 0 6px">({{count4 | number : '1.0-0'}})</span></h3>
+    </ion-col>
+    <ion-col size="6">
+      <div class="progress-bar" item-right><span [style.width.%]="count4Percentage"></span></div>
+    </ion-col>
+    <ion-col size="2">
+      <h3 item-right><span style="padding: 0 6px">{{count4Percentage | number : '1.0-0'}}%</span> </h3>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="4">
+      <h3 class="review-stars"><span class="rating review-star" style="float:none">
+      <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon">&#x2605;</span> <span class="star-icon">&#x2605;</span> </span><span style="padding: 0 6px">({{count3 | number : '1.0-0'}})</span></h3>
+    </ion-col>
+    <ion-col size="6">
+      <div class="progress-bar" item-right><span [style.width.%]="count3Percentage"></span></div>
+    </ion-col>
+    <ion-col size="2">
+      <h3 item-right><span style="padding: 0 6px">{{count3Percentage | number : '1.0-0'}}%</span> </h3>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="4">
+      <h3 class="review-stars"><span class="rating review-star" style="float:none">
+      <span class="star-icon full">&#x2605;</span> <span class="star-icon full">&#x2605;</span> <span class="star-icon">&#x2605;</span> <span class="star-icon">&#x2605;</span> <span class="star-icon">&#x2605;</span> </span><span style="padding: 0 6px">({{count2 | number : '1.0-0'}})</span></h3>
+    </ion-col>
+    <ion-col size="6">
+      <div class="progress-bar" item-right><span [style.width.%]="count2Percentage"></span></div>
+    </ion-col>
+    <ion-col size="2">
+      <h3 item-right><span style="padding: 0 6px">{{count2Percentage | number : '1.0-0'}}%</span> </h3>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="4">
+      <h3 class="review-stars"><span class="rating review-star" style="float:none">
+      <span class="star-icon full">&#x2605;</span> <span class="star-icon">&#x2605;</span> <span class="star-icon">&#x2605;</span> <span class="star-icon">&#x2605;</span> <span class="star-icon">&#x2605;</span> </span><span style="padding: 0 6px">({{count1 | number : '1.0-0'}})</span></h3>
+    </ion-col>
+    <ion-col size="6">
+      <div class="progress-bar" item-right><span [style.width.%]="count1Percentage"></span></div>
+    </ion-col>
+    <ion-col size="2">
+      <h3 item-right><span style="padding: 0 6px;">{{count1Percentage | number : '1.0-0'}}%</span> </h3>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+            <ion-card mode="{{settings.settings.mode}}" *ngIf="ratingVerificationRequired == 'no' || customerBoughtProduct">
+                <ion-card-content>
+                    <div class="new-review">
+                        <ion-label style="margin: 0px 0 6px 18px; font-size:13px">{{form.name}} <span style="margin-right: 10px">{{"YOUR RATING" | translate}}</span> <span class="rating review-star" style="float:none;">
+              <span tappable (click)="yourRating(1)" class="star-icon" [ngClass]="{full: form.value.rating >= 1, half: form.value.rating == 0.5}">&#x2605;</span> <span tappable (click)="yourRating(2)" class="star-icon" [ngClass]="{full: form.value.rating >= 2, half: form.value.rating == 1.5}">&#x2605;</span> <span tappable (click)="yourRating(3)" class="star-icon" [ngClass]="{full: form.value.rating >= 3, half: form.value.rating == 2.5}">&#x2605;</span> <span tappable (click)="yourRating(4)" class="star-icon" [ngClass]="{full: form.value.rating >= 4, half: form.value.rating == 3.5}">&#x2605;</span> <span tappable (click)="yourRating(5)" class="star-icon" [ngClass]="{full: form.value.rating >= 5, half: form.value.rating == 4.5}">&#x2605;</span> </span>
+                        </ion-label>
+                        <div class="comment-form">
+                            <form [formGroup]="form">
+                                <ion-list>
+                                    <ion-item *ngIf="!settings.customer?.id">
+                                        <ion-input type="text" formControlName="author"  placeholder="{{'Name' | translate}}"> </ion-input>
+                                    </ion-item>
+                                    <ion-item *ngIf="!settings.customer?.id">
+                                        <ion-input type="email" formControlName="email" placeholder="{{'Email' | translate}}"> </ion-input>
+                                    </ion-item>
+                                    <ion-item>
+                                        <ion-input required formControlName="comment" placeholder="{{'Comment' | translate}}">
+                                        </ion-input>
+                                    </ion-item>
+                                </ion-list>
+                                <div>
+                                    <ion-button color="{{settings.theme.button}}" [disabled]="!form.valid || disableSubmit" expand="block" (click)="onSubmit()">{{"Submit" | translate}}
+                                    </ion-button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+
+
+<div *ngFor="let item of reviews">
+<ion-item lines="none">
+  <ion-avatar slot="start">
+    <ion-img alt="" src="https://www.gravatar.com/avatar/{{item.avatar}}"></ion-img>
+  </ion-avatar>
+  <ion-label>
+    <h2>{{item.author}}
+     <span class="rating review-star">
+     <span class="star-icon" [ngClass]="{full: item.rating >= 1, half: item.rating == 0.5}">&#x2605;</span> <span class="star-icon" [ngClass]="{full: item.rating >= 2, half: item.rating == 1.5}">&#x2605;</span> <span class="star-icon" [ngClass]="{full: item.rating >= 3, half: item.rating == 2.5}">&#x2605;</span> <span class="star-icon" [ngClass]="{full: item.rating >= 4, half: item.rating == 3.5}">&#x2605;</span> <span class="star-icon" [ngClass]="{full: item.rating >= 5, half: item.rating == 4.5}">&#x2605;</span></span>
+    </h2>
+  <p>{{item.date | datepipe}}</p>
+  </ion-label>
+</ion-item>
+<ion-item><ion-label class="review-content"><p text-wrap [innerHTML]="item.content"></p></ion-label></ion-item>
+</div>
+
+  <!--ion-infinite-scroll threshold="100px" *ngIf="hasMoreItems" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll-->
+  </div>
+</ion-content>

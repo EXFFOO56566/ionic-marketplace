@@ -1,0 +1,147 @@
+<ion-header mode="ios" mode='ios'>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/account/address"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"Edit Address" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+	<ion-list no-margin *ngIf="settings.customer?.billing">
+
+  <ion-list-header>
+    <ion-label>{{"Billing Address" | translate}}</ion-label>
+  </ion-list-header>
+
+        <ion-item>
+            <ion-label position="stacked">{{"First Name" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.billing.first_name" name="firstname"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Last Name" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.billing.last_name" name="lastname"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Phone" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.billing.phone" name="telephone"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Company" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.billing.company" name="company"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Street Address" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.billing.address_1" name="address_1"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Street Address" | translate}} 2</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.billing.address_2" name="address_2"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Email" | translate}}</ion-label>
+            <ion-input required type="email" [(ngModel)]="settings.customer.billing.email" name="email"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"City" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.billing.city" name="city"> </ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label position="stacked">{{"Postcode" | translate}}</ion-label>
+            <ion-input required type="number" [(ngModel)]="settings.customer.billing.postcode" name="postcode"> </ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="countries && countries.length > 1">
+            <ion-label>{{"Country" | translate}}</ion-label>
+            <ion-select [(ngModel)]="settings.customer.billing.country" (ngModelChange)="getBillingRegion()" name="billing_country">
+                <div *ngFor="let field of countries">
+                    <ion-select-option value="{{field.value}}"><span [innerHTML]="field.label"></span> </ion-select-option>
+                </div>
+            </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="billingStates?.regions.length">
+            <ion-label>{{"State" | translate}}</ion-label>
+            <ion-select [(ngModel)]="settings.customer.billing.state" name="billing_state">
+                <div *ngFor="let field of billingStates.regions">
+                    <ion-select-option value="{{field.value}}"><span [innerHTML]="field.label"></span></ion-select-option>
+                </div>
+            </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="!billingStates?.regions.length">
+            <ion-label position="stacked">{{"State" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.billing.state" name="billing_state"> </ion-input>
+        </ion-item>
+
+
+</ion-list>
+
+
+<ion-list no-margin *ngIf="settings.customer?.shipping">
+
+  <ion-list-header>
+    <ion-label>{{"Shipping Address" | translate}}</ion-label>
+  </ion-list-header>
+
+        <ion-item>
+            <ion-label position="stacked">{{"First Name" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.shipping.first_name" name="firstname"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Last Name" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.shipping.last_name" name="lastname"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Company" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.shipping.company" name="company"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Street Address" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.shipping.address_1" name="address_1"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"Street Address" | translate}} 2</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.shipping.address_2" name="address_2"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">{{"City" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.shipping.city" name="city"> </ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label position="stacked">{{"Postcode" | translate}}</ion-label>
+            <ion-input required type="number" [(ngModel)]="settings.customer.shipping.postcode" name="postcode"> </ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="countries && countries.length > 1">
+            <ion-label>{{"Country" | translate}}</ion-label>
+            <ion-select [(ngModel)]="settings.customer.shipping.country" (ngModelChange)="getShippingRegion()" name="shipping_country">
+                <div *ngFor="let field of countries">
+                    <ion-select-option value="{{field.value}}"><span [innerHTML]="field.label"></span> </ion-select-option>
+                </div>
+            </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="shippingStates?.regions.length">
+            <ion-label>{{"State" | translate}}</ion-label>
+            <ion-select [(ngModel)]="settings.customer.shipping.state" name="shipping_state">
+                <div *ngFor="let field of shippingStates.regions">
+                    <ion-select-option value="{{field.value}}"><span [innerHTML]="field.label"></span></ion-select-option>
+                </div>
+            </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="!shippingStates?.regions.length">
+            <ion-label position="stacked">{{"State" | translate}}</ion-label>
+            <ion-input required type="text" [(ngModel)]="settings.customer.shipping.state" name="shipping_state"> </ion-input>
+        </ion-item>
+
+</ion-list>
+
+
+<ion-button *ngIf="settings.customer" color="{{settings.theme.button}}" expand="block" (click)="processAddress()" [disabled]="disableButton" fill="solid">{{"Save" | translate}}</ion-button>
+</ion-content>

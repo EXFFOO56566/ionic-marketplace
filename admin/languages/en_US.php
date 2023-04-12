@@ -1,0 +1,137 @@
+<?php
+
+class Mstore_Flutter_Mobile_App_i18nt {
+	public function load_plugin_textdomain() {
+
+		return array( // Angola states.
+			'Home' => __( 'Home', 'mstoreapp-mobile-app' ),
+			'Category' => __( 'Category', 'mstoreapp-mobile-app' ),
+			'Categories' => __( 'Categories', 'mstoreapp-mobile-app' ),
+			'Cart' => __( 'Cart', 'mstoreapp-mobile-app' ),
+			'Add to cart' => __( 'Add to cart', 'mstoreapp-mobile-app' ),
+			'Buy now' => __( 'Buy now', 'mstoreapp-mobile-app' ),
+			'Out of stock' => __( 'Out of stock', 'mstoreapp-mobile-app' ),
+			'In stock' => __( 'In stock', 'mstoreapp-mobile-app' ),
+			'Account' => __( 'Account', 'mstoreapp-mobile-app' ),
+			'Product' => __( 'Product', 'mstoreapp-mobile-app' ),
+			'Products' => __( 'Products', 'mstoreapp-mobile-app' ),
+			'Sign In' => __( 'Sign In', 'mstoreapp-mobile-app' ),
+			'Sign Up' => __( 'Sign Up', 'mstoreapp-mobile-app' ),
+			'Orders' => __( 'Orders', 'mstoreapp-mobile-app' ),
+			'Order' => __( 'Order', 'mstoreapp-mobile-app' ),
+			'Wishlist' => __( 'Wishlist', 'mstoreapp-mobile-app' ),
+			'Address' => __( 'Address', 'mstoreapp-mobile-app' ),
+			'Settings' => __( 'Settings', 'mstoreapp-mobile-app' ),
+			'Continue' => __( 'Continue', 'mstoreapp-mobile-app' ),
+			'Save' => __( 'Save', 'mstoreapp-mobile-app' ),
+			'Filter' => __( 'Filter', 'mstoreapp-mobile-app' ),
+			'Apply' => __( 'Apply', 'mstoreapp-mobile-app' ),
+			'Featured' => __( 'Featured', 'mstoreapp-mobile-app' ),
+			'New Arrivals' => __( 'New Arrivals', 'mstoreapp-mobile-app' ),
+			'Sales' => __( 'Sales', 'mstoreapp-mobile-app' ),
+			'Share app' => __( 'Share app', 'mstoreapp-mobile-app' ),
+			'Username' => __( 'Username', 'mstoreapp-mobile-app' ),
+			'Password' => __( 'Password', 'mstoreapp-mobile-app' ),
+			'First Name' => __( 'First Name', 'mstoreapp-mobile-app' ),
+			'Last Name' => __( 'Last Name', 'mstoreapp-mobile-app' ),
+			'Phone Number' => __( 'Phone Number', 'mstoreapp-mobile-app' ),
+			'Address 2' => __( 'Address 2', 'mstoreapp-mobile-app' ),
+			'Email' => __( 'Email', 'mstoreapp-mobile-app' ),
+			'City' => __( 'City', 'mstoreapp-mobile-app' ),
+			'Pincode' => __( 'Pincode', 'mstoreapp-mobile-app' ),
+			'Location' => __( 'Location', 'mstoreapp-mobile-app' ),
+			'Select' => __( 'Select', 'mstoreapp-mobile-app' ),
+			'Select location' => __( 'Select location', 'mstoreapp-mobile-app' ),
+			'States' => __( 'States', 'mstoreapp-mobile-app' ),
+			'State' => __( 'State', 'mstoreapp-mobile-app' ),
+			'Country' => __( 'Email', 'mstoreapp-mobile-app' ),
+			'Countires' => __( 'Countires', 'mstoreapp-mobile-app' ),
+
+			'Related Products' => __( 'Related Products', 'mstoreapp-mobile-app' ),
+			'Just for you' => __( 'Just for you', 'mstoreapp-mobile-app' ),
+			'You may also like' => __( 'You may also like', 'mstoreapp-mobile-app' ),
+
+			'Billing' => __( 'Billing', 'mstoreapp-mobile-app' ),
+			'Shipping' => __( 'Shipping', 'mstoreapp-mobile-app' ),
+			'Discount' => __( 'Discount', 'mstoreapp-mobile-app' ),
+			'Subtotal' => __( 'Subtotal', 'mstoreapp-mobile-app' ),
+			'Total' => __( 'Total', 'mstoreapp-mobile-app' ),
+			'Tax' => __( 'Tax', 'mstoreapp-mobile-app' ),
+			'Fee' => __( 'Fee', 'mstoreapp-mobile-app' ),
+			'Order summary' => __( 'Order summary', 'mstoreapp-mobile-app' ),
+			'Thank You' => __( 'Thank You', 'mstoreapp-mobile-app' ),
+			'Payment' => __( 'Shipping', 'mstoreapp-mobile-app' ),
+			'Payment method' => __( 'Payment method', 'mstoreapp-mobile-app' ),
+			'Shipping method' => __( 'Shipping method', 'mstoreapp-mobile-app' ),
+			'Shipping' => __( 'Shipping', 'mstoreapp-mobile-app' ),
+			'Billing address' => __( 'Billing address', 'mstoreapp-mobile-app' ),
+			'Shipping address' => __( 'Shipping address', 'mstoreapp-mobile-app' ),
+
+			'No orders' => __( 'No orders', 'mstoreapp-mobile-app' ),
+			'No more orders ' => __( 'No more orders', 'mstoreapp-mobile-app' ),
+			'No wishlist' => __( 'No wishlist', 'mstoreapp-mobile-app' ),
+			'No more wishlist ' => __( 'No more wishlist', 'mstoreapp-mobile-app' ),
+
+			'New' => __( 'New', 'mstoreapp-mobile-app' ),
+			'OTP' => __( 'OTP', 'mstoreapp-mobile-app' ),
+			'Reset' => __( 'Reset', 'mstoreapp-mobile-app' ),
+			'Reset password' => __( 'Reset password', 'mstoreapp-mobile-app' ),
+			'New password' => __( 'New password', 'mstoreapp-mobile-app' ),
+			'Required Field' => __( 'Required Field', 'mstoreapp-mobile-app' ),
+			'Please enter' => __( 'Please enter', 'mstoreapp-mobile-app' ),
+			'Please enter username' => __( 'Please enter username', 'mstoreapp-mobile-app' ),
+			'Please enter password' => __( 'Please enter password', 'mstoreapp-mobile-app' ),
+			'Please enter first name' => __( 'Please enter first name', 'mstoreapp-mobile-app' ),
+			'Please enter last name' => __( 'Please enter last name', 'mstoreapp-mobile-app' ),
+			'Please enter city' => __( 'Please enter city', 'mstoreapp-mobile-app' ),
+			'Please enter pincode' => __( 'Please enter pincode', 'mstoreapp-mobile-app' ),
+			'Please enter state' => __( 'Please enter state', 'mstoreapp-mobile-app' ),
+			'Please enter valid email' => __( 'Please enter valid email', 'mstoreapp-mobile-app' ),
+			'Please enter phone number' => __( 'Please enter phone number', 'mstoreapp-mobile-app' ),
+			'Please enter otp' => __( 'Please enter otp', 'mstoreapp-mobile-app' ),
+			'Please enter address' => __( 'Please enter address', 'mstoreapp-mobile-app' ),
+
+
+			'Logout' => __( 'Logout', 'mstoreapp-mobile-app' ),
+			'Please wait' => __( 'Please wait', 'mstoreapp-mobile-app' ),
+			'Language' => __( 'Language', 'mstoreapp-mobile-app' ),
+			'Currency' => __( 'Currency', 'mstoreapp-mobile-app' ),
+
+			
+
+			'Forgot password' => __( 'Forgot password?', 'mstoreapp-mobile-app' ),
+			'Already have an account' => __( 'Already have an account?', 'mstoreapp-mobile-app' ),
+			'Dont have an account' => __( "Don't have and account?", 'mstoreapp-mobile-app' ),
+			'Theme' => __( 'Theme', 'mstoreapp-mobile-app' ),
+			'Light' => __( 'Light', 'mstoreapp-mobile-app' ),
+			'Dart' => __( 'Dart', 'mstoreapp-mobile-app' ),
+			'System' => __( 'System', 'mstoreapp-mobile-app' ),
+			'No products' => __( 'No products', 'mstoreapp-mobile-app' ),
+			'No more products' => __( 'No more products', 'mstoreapp-mobile-app' ),
+
+			'Chat' => __( 'Chat', 'mstoreapp-mobile-app' ),
+			'Call' => __( 'Call', 'mstoreapp-mobile-app' ),
+			'Info' => __( 'Info', 'mstoreapp-mobile-app' ),
+			'Edit' => __( 'Edit', 'mstoreapp-mobile-app' ),
+			'Welcome' => __( 'Welcome', 'mstoreapp-mobile-app' ),
+			'Checkout' => __( 'Checkout', 'mstoreapp-mobile-app' ),
+			'Items' => __( 'Items', 'mstoreapp-mobile-app' ),
+			'Coupon code' => __( 'Coupon code', 'mstoreapp-mobile-app' ),
+			'Please enter coupon code' => __( 'Please enter coupon code', 'mstoreapp-mobile-app' ),
+			'Empty Cart' => __( 'Your cart is empty', 'mstoreapp-mobile-app' ),
+
+			'You order have been received' => __( 'You order have been received', 'mstoreapp-mobile-app' ),
+
+			'Thank you for shopping with us' => __( 'Thank you for shopping with us', 'mstoreapp-mobile-app' ),
+
+			'Thank you order id is' => __( 'Thank you order id is', 'mstoreapp-mobile-app' ),
+
+			'You will receive a confirmation message' => __( 'Thank you order id is', 'mstoreapp-mobile-app' ),
+
+			'Privacy policy' => __( 'Privacy policy', 'mstoreapp-mobile-app' ),
+			'Shipping & returns' => __( 'Shipping & returns', 'mstoreapp-mobile-app' ),
+
+		);
+
+	}
+}

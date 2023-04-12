@@ -1,0 +1,81 @@
+ion-toolbar {
+    --border-width: 0 0 0px;
+    --background: transparent;
+    position: absolute;
+    --opacity: 0;
+}
+.logo-block {
+    height: 200px;
+    //background: var(--ion-color-success, #fff);
+    overflow: hidden;
+    ion-col {
+        text-align: center;
+        font-size: 24px;
+        color: darkblue;
+        opacity: 0.05;
+    }
+    .logo {
+        left: 0;
+        right: 0;
+        top: 65px;
+        width: 30%;
+        max-width: 120px;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+    }
+}
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0 0 0px;
+    --background: transparent;
+}
+.header-logo {
+    height: 150px;
+}
+.login1 {
+    margin-top: 24px;
+    ion-card {
+        box-shadow: none;
+        margin-left: 24px;
+        margin-right: 24px;
+        padding-bottom: 24px;
+    }
+    ion-button {
+        //margin: 0;
+        margin-top: 24px;
+    }
+    ion-fab-button {
+        margin: auto;
+        border-radius: 50%;
+        --box-shadow: none;
+        border: 0.02px solid #2798fb;
+        margin: auto;
+        --box-shadow: none;
+    }
+    ion-item {
+        --border-color: var(--ion-color-light, #fff);
+    }
+}
+.socila-login {
+    padding: 19px;
+    padding-top: 0;
+    ion-button {
+        margin-top: 0;
+    }
+}
+ion-segment {
+    border-radius: 0;
+    //position: fixed;
+}
+.login-register {
+    margin: 32px;
+    margin-top: 56px;
+    .login {
+        border: 0.55px solid var(--ion-color-light, #fff);
+        border-width: 0.55px 0.55px 0.55px 0.55px;
+        border-radius: 2px;
+        ion-item {
+            --border-color: var(--ion-color-light, #fff);
+        }
+    }
+}

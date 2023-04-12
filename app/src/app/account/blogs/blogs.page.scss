@@ -1,0 +1,17 @@
+.blogs {
+    a {
+        pointer-events: none;
+        cursor: default;
+        text-decoration: none;
+    }
+    .activated {
+        opacity: 0.4;
+    }
+    .empty {
+        margin-top: 50px;
+        text-align: center;
+        ion-icon {
+            font-size: 7.2em;
+        }
+    }
+}

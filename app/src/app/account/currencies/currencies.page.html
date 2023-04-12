@@ -1,0 +1,21 @@
+<ion-header mode="ios" mode='ios'>
+   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/account"></ion-back-button>
+    </ion-buttons>
+      <ion-title>{{"Currency" | translate}}</ion-title>
+   </ion-toolbar>
+</ion-header>
+<ion-content class="settings">
+   <div *ngIf="settings.currencies.length">
+      <ion-list >
+         <ion-radio-group [(ngModel)]="settings.currency" name="currencies" ngDefaultControl>
+         <ion-item *ngFor="let item of settings.currencies">
+            <ion-label class="payment-method-title"><span style="padding: 10px">{{item.code}}</span></ion-label>
+            <ion-radio value="{{item.code}}"> </ion-radio>
+         </ion-item>
+         </ion-radio-group>
+         <ion-button shape="undefined" mode="md" padding color="{{settings.theme.button}}" expand="block" fill="solid" (click)="applyCurrency()" >{{"Apply" | translate}}</ion-button>
+      </ion-list>
+   </div>
+</ion-content>

@@ -1,0 +1,84 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+  <ion-searchbar mode="ios" animated [(ngModel)]="searchInput" (ionChange)="onInput()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="vendor-list">
+	<div class="spinner" *ngIf="!vendors"><ion-spinner> </ion-spinner></div>
+
+	<div *ngIf="vendors" class="products">
+		<ion-item *ngFor="let item of vendors" button="true" (click)="getDetail(item)" mode="{{settings.settings.mode}}" button="true">
+			<ion-thumbnail slot="start">
+			  <img *ngIf="item.icon" src="{{item.icon}}">
+			</ion-thumbnail>
+			<ion-label class="ion-text-wrap">
+			  <h3 class="product-name" [innerHTML]="item.name"></h3>
+			  <!--p class="product-description" [innerHTML]="item.description"></p-->
+			</ion-label>
+		</ion-item>
+	</div>
+
+	<!-- Common -->
+	<!--ion-row *ngIf="vendors?.length">
+	    <ion-col size="4" size-sm="4" size-md="3" *ngFor="let item of vendors" (click)="getDetail(item)">
+	    <ion-card class="category-card" mode="{{settings.settings.mode}}" class="ion-activatable ion-focusable hydrated {{settings.settings.product_shadow}}">
+	      <img *ngIf="item.icon" src="{{item.icon}}"/>
+	      <ion-card-header>
+	        <ion-card-title>{{item.name}}</ion-card-title>
+	      </ion-card-header>
+	    </ion-card>
+	    </ion-col>
+  	</ion-row-->
+	<!-- Common -->
+
+	<!-- WC Marketplace -->
+	<!--ion-row *ngIf="!vendors?.length">
+	    <ion-col size="4" size-sm="4" size-md="3" *ngFor="let item of vendors" (click)="getDetail(item)">
+	    <ion-card class="category-card" mode="md" class="ion-activatable ion-focusable hydrated">
+	      <ion-img *ngIf="item.shop?.logo" src="{{item.shop?.logo}}"></ion-img>
+	      <ion-card-header>
+	        <ion-card-title>{{item.shop.title}}</ion-card-title>
+	      </ion-card-header>
+	    </ion-card>
+	    </ion-col>
+  	</ion-row-->
+	<!-- WC Marketplace -->
+
+	<!--DOKAN-->
+	<!--ion-row>
+	    <ion-col size="4" size-sm="4" size-md="3" *ngFor="let item of vendors" (click)="getDetail(item)">
+	    <ion-card class="category-card" mode="md" class="ion-activatable ion-focusable hydrated">
+	      <ion-img *ngIf="item.logo" src="{{item.logo}}"></ion-img>
+	      <ion-img *ngIf="!item.logo" src="assets/image/logo.png"></ion-img>
+	      <ion-card-header>
+	        <ion-card-title>{{item.store_name}}</ion-card-title>
+	      </ion-card-header>
+	    </ion-card>
+	    </ion-col>
+  	</ion-row-->
+	<!--DOKAN-->
+
+	<!-- WCFM -->
+	<!--ion-row>
+	    <ion-col size="4" size-sm="4" size-md="3" *ngFor="let item of vendors" (click)="getDetail(item)">
+	    <ion-card class="category-card" mode="md" class="ion-activatable ion-focusable hydrated">
+	      <ion-img *ngIf="item?.banner" src="{{item?.banner}}"></ion-img>
+	      <ion-card-header>
+	        <ion-card-title>{{item.store_info.store_name}}</ion-card-title>
+	      </ion-card-header>
+	    </ion-card>
+	    </ion-col>
+  	</ion-row-->
+	<!-- WCFM -->
+
+
+	<ion-infinite-scroll threshold="100px" *ngIf="hasMoreItems && vendors?.length" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+
+</ion-content>

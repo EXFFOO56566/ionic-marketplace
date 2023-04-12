@@ -1,0 +1,194 @@
+/****
+Copy respective block css block
+***/
+
+// Catgories Grid 1
+.categories-card1 {
+    background-color: white;
+    ion-card {
+        margin: 0;
+        border-radius: 4px;
+        background-color: white;
+    }
+    ion-card-header {
+        padding: 10px;
+        //display: none; //Comment or Uncomment this to show or hide category name
+    }
+    ion-card-content {
+        padding: 0;
+    }
+    ion-card-title {
+        font-size: 13px;
+        text-align: center; //Comment this for text align start
+    }
+    img {
+        height: 80px;
+        width: auto;
+        margin: auto;
+    }
+}
+// Catgories Grid 2
+.categories-card2 {
+    padding: 0;
+    background-color: white;
+    ion-col {
+        padding: 0;
+        border-right: 0.55px solid #f7f7f7;
+        border-bottom: 0.55px solid #f7f7f7;
+    }
+    ion-card {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: white;
+    }
+    ion-card-header {
+        padding: 10px;
+        //display: none; //Comment or Uncomment this to show or hide category name
+    }
+    ion-card-content {
+        padding: 0;
+    }
+    ion-card-title {
+        font-size: 13px;
+        text-align: center; //Comment this for text align start
+    }
+    img {
+        height: 80px;
+        width: auto;
+        margin: auto;
+    }
+}
+// Catgories Grid 3
+.categories-card3 {
+    padding: 0;
+    background-color: white;
+    ion-col {
+        padding: 16px;
+        border-right: 0.55px solid #f7f7f7;
+        border-bottom: 0.55px solid #f7f7f7;
+    }
+    ion-card {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: white;
+    }
+    ion-card-header {
+        padding: 10px;
+        //display: none; //Comment or Uncomment this to show or hide category name
+    }
+    ion-card-content {
+        padding: 0;
+    }
+    ion-card-title {
+        font-size: 13px;
+        text-align: center; //Comment this for text align start
+    }
+    img {
+        border-radius: 4px;
+        height: 80px;
+        width: auto;
+        margin: auto;
+    }
+}
+// Catgories Grid 4
+.categories-card4 {
+    margin: 20px;
+    margin-bottom: 20px;
+    border-top: 0.55px solid #f7f7f7;
+    border-left: 0.55px solid #f7f7f7;
+    border-bottom: 0.55px solid #f7f7f7;
+    background-color: white;
+    padding: 0;
+    ion-col {
+        padding: 16px;
+        border-right: 0.55px solid #f7f7f7;
+        border-bottom: 0.55px solid #f7f7f7;
+        color: #000;
+    }
+    ion-card {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: white;
+    }
+    ion-card-header {
+        padding: 10px; //display: none; //Comment or Uncomment this to show or hide category name
+    }
+    ion-card-content {
+        padding: 0;
+    }
+    ion-card-title {
+        font-size: 13px;
+        text-align: center; //Comment this for text align start
+    }
+    img {
+        border-radius: 50%;
+        height: 80px;
+        width: auto;
+        margin: auto;
+    }
+}
+// Drop down type category block
+.category-container {
+    padding: 8px;
+    background-color: #f7f7f7;
+    .categories-card5 {
+        //border-radius: 10px;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        margin: 0px; //margin-bottom: 20px;
+        border-top: 0.55px solid #f7f7f7;
+        border-left: 0.55px solid #f7f7f7;
+        border-bottom: 0.55px solid #f7f7f7;
+        background-color: white;
+        padding: 0;
+        ion-col {
+            padding: 16px;
+            border-right: 0.55px solid #f7f7f7;
+            border-bottom: 0.55px solid #f7f7f7;
+            color: #000;
+        }
+        ion-card {
+            margin: 0;
+            box-shadow: none;
+            border-radius: 0;
+            background-color: white;
+        }
+        ion-card-header {
+            padding: 10px; //display: none; //Comment or Uncomment this to show or hide category name
+        }
+        ion-card-content {
+            padding: 0;
+        }
+        ion-card-title {
+            font-size: 13px;
+            text-align: center; //Comment this for text align start
+        }
+        img {
+            border-radius: 50%;
+            height: 100%;
+            width: 100%;
+        }
+        .sub-category-items {
+            img {
+                height: 80px;
+                width: auto;
+                margin: auto;
+            }
+        }
+    }
+}
+// Catgories List 2
+ion-item {
+    .item-inner {
+        border-color: #ececec;
+        --inner-border-width: 0.55px;
+    }
+    img {
+        border-radius: 4px;
+        height: 60px;
+        width: auto;
+        max-width: 60px;
+    }
+}

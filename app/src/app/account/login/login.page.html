@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start" (click)="close(false)">
+      <ion-back-button defaultHref="/tabs/account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{"Login" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+    <div class="logo-block">
+    <ion-grid>
+      <!--ion-row class="ion-align-items-center">
+      <ion-col *ngFor="let item of icons; let i = index" size="2" size-md="2" class="ion-align-self-center">
+        <ion-icon *ngIf="i % 2" name="heart-outline"></ion-icon>
+        <ion-icon *ngIf="!(i % 2)" name="star-outline"></ion-icon>
+      </ion-col>
+      </ion-row-->
+      <img class="logo" src="assets/image/logo.png">
+    </ion-grid>
+    </div>
+    <ion-segment scrollable="true" mode="md" color="warning" value="{{segment}}" (ionChange)="segmentChanged($event)">
+      <ion-segment-button color="warning" value="login">
+        <ion-label>{{"Login"| translate}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button color="warning" value="register">
+        <ion-label>{{"Register"| translate}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div class="login1">
+      <ion-card mode="{{settings.settings.mode}}">
+      <div class="form" *ngIf="segment == 'login'">
+            <ion-list>
+            <form [formGroup]="form">
+              <ion-item mode="md">
+              <ion-icon slot="start" name="person" mode="md"></ion-icon>
+              <ion-input type="text" formControlName="username" placeholder="{{'Email/Username' | translate}}"></ion-input>
+              </ion-item>
+              <ion-item mode="md">
+              <ion-icon slot="start" name="eye" mode="md"></ion-icon>
+              <ion-input type="password" formControlName="password" placeholder="{{'Password' | translate}}"></ion-input>
+              </ion-item>
+              </form>
+              <!--br/>
+                <p style="text-align: center;">-- OR --</p>
+              <br/>
+              <form [formGroup]="formSMS">
+              <ion-item mode="md">
+                <ion-input style="max-width: 40px;" type="text" formControlName="country_code" placeholder="{{formSMS.value.country_code}}"></ion-input>
+                <ion-input type="text" formControlName="phone" placeholder="{{'Mobile Number' | translate}}"></ion-input>
+                </ion-item>
+                <ion-item mode="md">
+                <ion-input type="number" formControlName="sms" placeholder="{{'SMS Code' | translate}}"></ion-input>
+                <p slot="end">{{"Get Code"| translate}}</p>
+              </ion-item>
+             </form-->
+            </ion-list>
+            <ion-button fill="solid" mode="md" color="{{settings.theme.button}}" expand="block" [disabled]="disableSubmit || (!formSMS.valid && !form.valid)" (click)="onSubmit()">{{"Login"| translate}}</ion-button>
+            <ion-button style="margin-top: 0px;" color="dark" expand="full" fill="clear" (click)="forgotton()">{{"Forgot Password"| translate}}?</ion-button>
+            <div class="errors" *ngIf="errors">
+              <div *ngFor="let error of errors | keys" style="text-align: center; padding-top: 10px;">
+                <ion-label color="danger" [innerHTML]="error.value"></ion-label>
+              </div>
+            </div>
+      </div>
+
+
+
+      <div class="form" *ngIf="segment == 'register'">
+        <ion-list>
+          <form [formGroup]="formRegister">
+            <ion-item mode="md">
+              <ion-icon slot="start" name="person" mode="md"></ion-icon>
+            <ion-input required type="text" formControlName="first_name" placeholder="{{'First Name' | translate}}"></ion-input>
+            </ion-item>
+            <ion-item mode="md">
+              <ion-icon slot="start" name="person" mode="md"></ion-icon>
+            <ion-input required type="text" formControlName="last_name" placeholder="{{'Last Name' | translate}}"></ion-input>
+            </ion-item>
+            <ion-item mode="md">
+              <ion-icon slot="start" name="call" mode="md"></ion-icon>
+            <ion-input required type="text" formControlName="phone" placeholder="{{'Phone' | translate}}"></ion-input>
+            </ion-item>
+            <ion-item mode="md">
+              <ion-icon slot="start" name="mail" mode="md"></ion-icon>
+            <ion-input required type="email" formControlName="email" placeholder="{{'Email/Username' | translate}}"></ion-input>
+            </ion-item>
+            <ion-item mode="md">
+              <ion-icon slot="start" name="eye" mode="md"></ion-icon>
+            <ion-input required type="password" formControlName="password" placeholder="{{'Password' | translate}}"></ion-input>
+            </ion-item>
+          </form>
+          <ion-button shape="undefined" mode="md" color="{{settings.theme.button}}" expand="block" fill="solid" (click)="onRegister()">{{"Register" | translate}}</ion-button>
+        </ion-list>
+        
+        <div class="errors" *ngIf="errorsRegister">
+          <div *ngFor="let error of errorsRegister | keys" style="text-align: center; padding: 8px; margin-top: 16px;">
+            <ion-label color="danger" class="error" [innerHTML]="error.value"></ion-label>
+          </div>
+         </div>
+      </div>
+
+
+      </ion-card>
+
+          <!--ion-grid class="socila-login">
+            <ion-row>
+            <ion-col size="6">
+            <ion-button expand="full" shape="undefined" mode="md" fill="solid" color="google" (click)="googleLogin()" [disabled]="googleLogingInn">
+            <ion-icon slot="start" name="logo-google"></ion-icon>{{"Google"| translate}}</ion-button>
+            <br/>
+            </ion-col>
+            <ion-col size="6">
+            <ion-button expand="full" shape="undefined" mode="md" fill="solid" color="facebook" (click)="facebookLogin()" [disabled]="facebookLogingInn">
+            <ion-icon slot="start" name="logo-facebook"></ion-icon>{{"Facebook"| translate}}</ion-button>
+            </ion-col>
+            </ion-row>
+          </ion-grid-->
+    </div>
+
+
+
+</ion-content>
